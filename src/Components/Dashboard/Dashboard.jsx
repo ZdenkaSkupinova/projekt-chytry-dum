@@ -13,7 +13,7 @@ export const Dashboard = () => {
         <Lights lights={smartHomeData.lights} />
         <Climate temperature={smartHomeData.climate.temperature}
                 humidity={smartHomeData.climate.humidity} />
-        <Blinds state={smartHomeData.state} />
+        <Blinds state={smartHomeData.blinds} />
         <Energy electricity={smartHomeData.energyConsumption.electricity}
                 water={smartHomeData.energyConsumption.water} />
         </main>   

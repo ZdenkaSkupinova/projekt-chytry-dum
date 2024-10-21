@@ -3,25 +3,24 @@ import blindsOpen from "./img/blinds-open.svg"
 import blindsClosed from "./img/blinds-closed.svg"
 import { useState } from 'react';
 
-
 export const Blinds = ({state}) => {
-    const [blindsState, setBlindsState] = useState(true);
+    const [blindsState, setBlindsState] = useState(state);
     
     return (
     <div className="blinds">
         <div className="blinds__icon">
-            <img src={blindsState ? blindsOpen : blindsClosed} alt={blindsState ? 'žaluzie otevřeno' : 'žaluzie zavřeno'} />
+            <img src={blindsState === 'open' ? blindsOpen : blindsClosed} alt={blindsState === 'open' ? 'žaluzie otevřeno' : 'žaluzie zavřeno'} />
         </div>
         <div className="blinds__name">
             Žaluzie
         </div>
         <div className="blinds__controls">
-            <button className={"button" + (blindsState ? "button button--active" : "")} disabled={blindsState} onClick={() => setBlindsState(true)}>Otevřeno</button>
-            <button className="button" disabled={!blindsState} onClick={() => setBlindsState(false)}>Zavřeno</button>
+            <button className={blindsState === 'open' ? "button button--active" : ""} onClick={() => setBlindsState(state)}>Otevřeno</button>
+            <button className="button" onClick={() => setBlindsState(!state)}>Zavřeno</button>
         </div>
     </div>
 
     )
 }
 
-// komponenta mi funguje, ale nevezme data z file, kde je "open". 
+
